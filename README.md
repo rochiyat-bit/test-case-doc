@@ -158,20 +158,63 @@ NEXTAUTH_SECRET=your-secret-key
 ANTHROPIC_API_KEY=sk-ant-xxxxx
 ```
 
-3. **Setup database:**
+3. **Create PostgreSQL database:**
 
 ```bash
-# Run migrations to create tables
-npm run db:migrate
+# Via psql
+createdb testcase_generator
+
+# Or via PostgreSQL client
+psql -U postgres
+CREATE DATABASE testcase_generator;
 ```
 
-4. **Start development server:**
+4. **Setup database:**
+
+```bash
+# Option 1: Complete setup (migrations + seed data)
+npm run db:setup
+
+# Option 2: Migration only (no sample data)
+npm run db:migrate
+
+# Option 3: Seed sample data after migration
+npm run db:seed
+```
+
+**Sample data includes:**
+- 2 demo users (demo@testgen.com / Password123)
+- 2 sample projects
+- 5 test cases
+- 3 templates
+
+5. **Start development server:**
 
 ```bash
 npm run dev
 ```
 
 Visit `http://localhost:3000`
+
+## 📊 Database Management
+
+### Available Scripts
+
+```bash
+# Complete setup (migrate + seed)
+npm run db:setup
+
+# Migrate tables only
+npm run db:migrate
+
+# Seed sample data
+npm run db:seed
+
+# Reset database (⚠️ deletes all data)
+npm run db:reset
+```
+
+For detailed database documentation, see [DATABASE.md](./DATABASE.md)
 
 ## 🗄️ Database Schema
 

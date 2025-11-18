@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "db:migrate": "node scripts/migrate.js",
-    "db:seed": "node scripts/seed.js"
+    "db:seed": "node scripts/seed.js",
+    "db:reset": "node scripts/reset.js",
+    "db:setup": "node scripts/setup.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
